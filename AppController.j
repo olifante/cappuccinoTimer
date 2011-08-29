@@ -8,7 +8,7 @@
 
 @import <Foundation/CPObject.j>
 @import <AppKit/CPLevelIndicator.j>
-
+@import <Foundation/CPTimer.j>
 
 @implementation AppController : CPObject
 {
@@ -16,12 +16,12 @@
     @outlet CPSlider slider1;
     @outlet CPSlider slider2;
     @outlet CPSlider slider3;
-    @outlet CPButton button1;
-    @outlet CPButton button2;
-    @outlet CPButton button3;
     @outlet CPTextField field1;
     @outlet CPTextField field2;
     @outlet CPTextField field3;
+    @outlet CPButton button1;
+    @outlet CPButton button2;
+    @outlet CPButton button3;
     @outlet CPLevelIndicator level1;
     @outlet CPLevelIndicator level2;
     @outlet CPLevelIndicator level3;
@@ -87,6 +87,25 @@
 {
     var total = [slider1 intValue] + [slider2 intValue] + [slider3 intValue];
     console.log(total);
+    console.log([slider1 intValue]);
+    var timer1 = [CPTimer 
+                  scheduledTimerWithTimeInterval:[slider1 intValue]
+                  callback:function() {
+                      console.log('timer1 fired');
+                  }
+                  repeats:NO];
+    var timer2 = [CPTimer 
+                  scheduledTimerWithTimeInterval:([slider1 intValue] + [slider2 intValue])
+                  callback:function() {
+                      console.log('timer2 fired');
+                  }
+                  repeats:NO];
+    var timer3 = [CPTimer 
+                  scheduledTimerWithTimeInterval:([slider1 intValue] + [slider2 intValue] + [slider3 intValue])
+                  callback:function() {
+                      console.log('timer3 fired');
+                  }
+                  repeats:NO];
 }
 
 @end
