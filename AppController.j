@@ -25,6 +25,9 @@
     @outlet CPLevelIndicator level1;
     @outlet CPLevelIndicator level2;
     @outlet CPLevelIndicator level3;
+    sound1;
+    sound2;
+    sound3;
 }
 
 - (void)applicationDidFinishLaunching:(CPNotification)aNotification
@@ -40,6 +43,9 @@
 
     // In this case, we want the window from Cib to become our full browser window
     [theWindow setFullPlatformWindow:YES];
+    sound1 = [[CPSound alloc] initWithContentsOfFile:"Resources/test-44100-le-1ch-4bytes.wav" byReference:NO];
+    sound2 = [[CPSound alloc] initWithContentsOfFile:"Resources/test-8000-le-2ch-1byteu.wav" byReference:NO];
+    sound3 = [[CPSound alloc] initWithContentsOfFile:"Resources/test-8000-le-2ch-1byteu.wav" byReference:NO];
 }
 
 - (@action)buttonClicked:(id)sender
@@ -92,18 +98,21 @@
                   scheduledTimerWithTimeInterval:[slider1 intValue]
                   callback:function() {
                       console.log('timer1 fired');
+                      [sound1 play];
                   }
                   repeats:NO];
     var timer2 = [CPTimer 
                   scheduledTimerWithTimeInterval:([slider1 intValue] + [slider2 intValue])
                   callback:function() {
                       console.log('timer2 fired');
+                      [sound2 play];
                   }
                   repeats:NO];
     var timer3 = [CPTimer 
                   scheduledTimerWithTimeInterval:([slider1 intValue] + [slider2 intValue] + [slider3 intValue])
                   callback:function() {
                       console.log('timer3 fired');
+                      [sound3 play];
                   }
                   repeats:NO];
 }
