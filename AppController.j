@@ -13,6 +13,12 @@
 @implementation AppController : CPObject
 {
     CPWindow    theWindow; //this "outlet" is connected automatically by the Cib
+    @outlet CPButton button1;
+    @outlet CPButton button2;
+    @outlet CPButton button3;
+    @outlet CPTextField period1;
+    @outlet CPTextField period2;
+    @outlet CPTextField period3;
     @outlet CPLevelIndicator level1;
     @outlet CPLevelIndicator level2;
     @outlet CPLevelIndicator level3;
@@ -33,15 +39,31 @@
     [theWindow setFullPlatformWindow:YES];
 }
 
-- (@action)button1Clicked:(id)sender
+- (@action)buttonClicked:(id)sender
 {
-    var currentValue = [level1 intValue];
-    console.log(currentValue);
-    if (currentValue === [level1 maxValue]) {
-        [level1 setIntValue:[level1 minValue]];
+    var target;
+    if (sender === button1) {
+        target = level1;
+    } else if (sender === button2) {
+        target = level2;
+    } else if (sender === button3) {
+        target = level3;
     } else {
-        [level1 setIntValue:[level1 maxValue]];
+        console.log('no target');
+        return;
     }
+    var currentValue = [target intValue];
+    console.log(currentValue);
+    if (currentValue === [target maxValue]) {
+        [target setIntValue:[target minValue]];
+    } else {
+        [target setIntValue:[target maxValue]];
+    }
+}
+
+- (@action)fieldChanged:(id)sender
+{
+    console.log(sender);
 }
 
 @end
