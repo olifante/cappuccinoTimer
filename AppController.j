@@ -19,9 +19,9 @@
     @outlet CPButton button1;
     @outlet CPButton button2;
     @outlet CPButton button3;
-    @outlet CPTextField period1;
-    @outlet CPTextField period2;
-    @outlet CPTextField period3;
+    @outlet CPTextField field1;
+    @outlet CPTextField field2;
+    @outlet CPTextField field3;
     @outlet CPLevelIndicator level1;
     @outlet CPLevelIndicator level2;
     @outlet CPLevelIndicator level3;
@@ -66,15 +66,16 @@
 
 - (@action)fieldChanged:(id)sender
 {
+    var target;
     console.log("sender has value " + [sender intValue]);
     switch (sender) {
-        case period1:
+        case field1:
             target = slider1;
             break;
-        case period2:
+        case field2:
             target = slider2;
             break;
-        case period3:
+        case field3:
             target = slider3;
             break;
     }
