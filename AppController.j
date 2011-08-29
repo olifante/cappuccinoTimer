@@ -13,6 +13,9 @@
 @implementation AppController : CPObject
 {
     CPWindow    theWindow; //this "outlet" is connected automatically by the Cib
+    @outlet CPSlider slider1;
+    @outlet CPSlider slider2;
+    @outlet CPSlider slider3;
     @outlet CPButton button1;
     @outlet CPButton button2;
     @outlet CPButton button3;
@@ -63,7 +66,20 @@
 
 - (@action)fieldChanged:(id)sender
 {
-    console.log(sender);
+    console.log("sender has value " + [sender intValue]);
+    switch (sender) {
+        case period1:
+            target = slider1;
+            break;
+        case period2:
+            target = slider2;
+            break;
+        case period3:
+            target = slider3;
+            break;
+    }
+    console.log("target has value " + [target intValue]);
+    [target setIntValue:[sender intValue]];
 }
 
 @end
