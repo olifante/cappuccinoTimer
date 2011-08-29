@@ -83,4 +83,10 @@
     [target setIntValue:[sender intValue]];
 }
 
+- (@action)totalPeriod:(id)sender
+{
+    var total = [slider1 intValue] + [slider2 intValue] + [slider3 intValue];
+    console.log(total);
+}
+
 @end
