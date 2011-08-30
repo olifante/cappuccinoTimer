@@ -5,7 +5,7 @@ objj_executeFile("AppController.j",YES);
 main=function(_1,_2){
 CPApplicationMain(_1,_2);
 };
-p;15;AppController.jt;3116;@STATIC;1.0;I;21;Foundation/CPObject.jI;25;AppKit/CPLevelIndicator.jI;20;Foundation/CPTimer.jt;3016;
+p;15;AppController.jt;3346;@STATIC;1.0;I;21;Foundation/CPObject.jI;25;AppKit/CPLevelIndicator.jI;20;Foundation/CPTimer.jt;3246;
 objj_executeFile("Foundation/CPObject.j",NO);
 objj_executeFile("AppKit/CPLevelIndicator.j",NO);
 objj_executeFile("Foundation/CPTimer.j",NO);
@@ -18,9 +18,6 @@ with(_3){
 }),new objj_method(sel_getUid("awakeFromCib"),function(_6,_7){
 with(_6){
 objj_msgSend(theWindow,"setFullPlatformWindow:",YES);
-sound1=objj_msgSend(objj_msgSend(CPSound,"alloc"),"initWithContentsOfFile:byReference:","Resources/one.wav",NO);
-sound2=objj_msgSend(objj_msgSend(CPSound,"alloc"),"initWithContentsOfFile:byReference:","Resources/two.wav",NO);
-sound3=objj_msgSend(objj_msgSend(CPSound,"alloc"),"initWithContentsOfFile:byReference:","Resources/three.wav",NO);
 }
 }),new objj_method(sel_getUid("buttonClicked:"),function(_8,_9,_a){
 with(_8){
@@ -67,9 +64,15 @@ objj_msgSend(_10,"setIntValue:",objj_msgSend(_f,"intValue"));
 }
 }),new objj_method(sel_getUid("totalPeriod:"),function(_11,_12,_13){
 with(_11){
+sound0=objj_msgSend(objj_msgSend(CPSound,"alloc"),"initWithContentsOfFile:byReference:","Resources/test-8000-le-2ch-1byteu.wav",NO);
+sound1=objj_msgSend(objj_msgSend(CPSound,"alloc"),"initWithContentsOfFile:byReference:","Resources/one.wav",NO);
+sound2=objj_msgSend(objj_msgSend(CPSound,"alloc"),"initWithContentsOfFile:byReference:","Resources/two.wav",NO);
+sound3=objj_msgSend(objj_msgSend(CPSound,"alloc"),"initWithContentsOfFile:byReference:","Resources/three.wav",NO);
 var _14=objj_msgSend(slider1,"intValue")+objj_msgSend(slider2,"intValue")+objj_msgSend(slider3,"intValue");
-console.log(_14);
-console.log(objj_msgSend(slider1,"intValue"));
+console.log("total period: "+_14);
+console.log("slider1 delay: "+objj_msgSend(slider1,"intValue"));
+objj_msgSend(sound0,"play");
+console.log(sound1._loadStatus);
 var _15=objj_msgSend(CPTimer,"scheduledTimerWithTimeInterval:callback:repeats:",objj_msgSend(slider1,"intValue"),function(){
 console.log("timer1 fired");
 objj_msgSend(sound1,"play");
