@@ -1,7 +1,3 @@
-.xCodeSupport/Sources/_Users_olifante_xcode_cappuccinoTimer_AppController.h
-.xCodeSupport/cappuccinoTimer.xcodeproj/project.pbxproj
-.xCodeSupport/cappuccinoTimer.xcodeproj/project.xcworkspace/contents.xcworkspacedata
-.xCodeSupport/cappuccinoTimer.xcodeproj/project.xcworkspace/xcuserdata/olifante.xcuserdatad/UserInterfaceState.xcuserstate
-.xCodeSupport/cappuccinoTimer.xcodeproj/xcuserdata/olifante.xcuserdatad/xcschemes/Another.xcscheme
-.xCodeSupport/cappuccinoTimer.xcodeproj/xcuserdata/olifante.xcuserdatad/xcschemes/xcschememanagement.plist
+.xCodeSupport/
+Build/
 .DS_Store
