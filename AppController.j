@@ -43,9 +43,6 @@
 
     // In this case, we want the window from Cib to become our full browser window
     [theWindow setFullPlatformWindow:YES];
-    sound1 = [[CPSound alloc] initWithContentsOfFile:"Resources/one.wav" byReference:NO];
-    sound2 = [[CPSound alloc] initWithContentsOfFile:"Resources/two.wav" byReference:NO];
-    sound3 = [[CPSound alloc] initWithContentsOfFile:"Resources/three.wav" byReference:NO];
 }
 
 - (@action)buttonClicked:(id)sender
@@ -91,9 +88,15 @@
 
 - (@action)totalPeriod:(id)sender
 {
+    sound0 = [[CPSound alloc] initWithContentsOfFile:"Resources/test-8000-le-2ch-1byteu.wav" byReference:NO];
+    sound1 = [[CPSound alloc] initWithContentsOfFile:"Resources/one.wav" byReference:NO];
+    sound2 = [[CPSound alloc] initWithContentsOfFile:"Resources/two.wav" byReference:NO];
+    sound3 = [[CPSound alloc] initWithContentsOfFile:"Resources/three.wav" byReference:NO];
     var total = [slider1 intValue] + [slider2 intValue] + [slider3 intValue];
-    console.log(total);
-    console.log([slider1 intValue]); 
+    console.log("total period: " + total);
+    console.log("slider1 delay: " + [slider1 intValue]);
+    [sound0 play];
+    console.log(sound1._loadStatus);
     var timer1 = [CPTimer 
                   scheduledTimerWithTimeInterval:[slider1 intValue]
                   callback:function() {
