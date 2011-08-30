@@ -74,6 +74,18 @@ task ("deploy", ["release"], function()
     printResults("Deployment")
 });
 
+task ("press", ["release"], function()
+{
+    FILE.mkdirs(FILE.join("Build", "Press", "cappuccinoTimer"));
+    OS.system(["press", "-f", FILE.join("Build", "Release", "cappuccinoTimer"), FILE.join("Build", "Press", "cappuccinoTimer")]);
+});
+ 
+task ("flatten", ["press"], function()
+{
+    FILE.mkdirs(FILE.join("Build", "Flatten", "cappuccinoTimer"));
+    OS.system(["flatten", "-f", "--verbose", "--split", "3", "-c", "closure-compiler", FILE.join("Build", "Press", "cappuccinoTimer"), FILE.join("Build", "Flatten", "cappuccinoTimer")]);
+});
+
 task ("desktop", ["release"], function()
 {
     FILE.mkdirs(FILE.join("Build", "Desktop", "cappuccinoTimer"));
