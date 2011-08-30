@@ -33,9 +33,6 @@
 - (void)applicationDidFinishLaunching:(CPNotification)aNotification
 {
     // This is called when the application is done loading.
-    sound1 = [[CPSound alloc] initWithContentsOfFile:"Resources/one.wav" byReference:NO];
-    sound2 = [[CPSound alloc] initWithContentsOfFile:"Resources/two.wav" byReference:NO];
-    sound3 = [[CPSound alloc] initWithContentsOfFile:"Resources/three.wav" byReference:NO];
 }
 
 - (void)awakeFromCib
@@ -46,6 +43,9 @@
 
     // In this case, we want the window from Cib to become our full browser window
     [theWindow setFullPlatformWindow:YES];
+    sound1 = [[CPSound alloc] initWithContentsOfFile:"Resources/one.wav" byReference:NO];
+    sound2 = [[CPSound alloc] initWithContentsOfFile:"Resources/two.wav" byReference:NO];
+    sound3 = [[CPSound alloc] initWithContentsOfFile:"Resources/three.wav" byReference:NO];
 }
 
 - (@action)buttonClicked:(id)sender
@@ -93,7 +93,7 @@
 {
     var total = [slider1 intValue] + [slider2 intValue] + [slider3 intValue];
     console.log(total);
-    console.log([slider1 intValue]);
+    console.log([slider1 intValue]); 
     var timer1 = [CPTimer 
                   scheduledTimerWithTimeInterval:[slider1 intValue]
                   callback:function() {
