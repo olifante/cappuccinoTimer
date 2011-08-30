@@ -33,6 +33,9 @@
 - (void)applicationDidFinishLaunching:(CPNotification)aNotification
 {
     // This is called when the application is done loading.
+    sound1 = [[CPSound alloc] initWithContentsOfFile:"Resources/one.wav" byReference:NO];
+    sound2 = [[CPSound alloc] initWithContentsOfFile:"Resources/two.wav" byReference:NO];
+    sound3 = [[CPSound alloc] initWithContentsOfFile:"Resources/three.wav" byReference:NO];
 }
 
 - (void)awakeFromCib
@@ -43,9 +46,6 @@
 
     // In this case, we want the window from Cib to become our full browser window
     [theWindow setFullPlatformWindow:YES];
-    sound1 = [[CPSound alloc] initWithContentsOfFile:"Resources/test-44100-le-1ch-4bytes.wav" byReference:NO];
-    sound2 = [[CPSound alloc] initWithContentsOfFile:"Resources/test-8000-le-2ch-1byteu.wav" byReference:NO];
-    sound3 = [[CPSound alloc] initWithContentsOfFile:"Resources/test-8000-le-2ch-1byteu.wav" byReference:NO];
 }
 
 - (@action)buttonClicked:(id)sender
