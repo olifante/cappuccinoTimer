@@ -1,3 +1,4 @@
 .xCodeSupport/
 Build/
 .DS_Store
+temp/
