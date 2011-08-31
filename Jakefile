@@ -83,7 +83,7 @@ task ("press", ["release"], function()
 task ("flatten", ["press"], function()
 {
     FILE.mkdirs(FILE.join("Build", "Flatten", "cappuccinoTimer"));
-    OS.system(["flatten", "-f", "--verbose", "--split", "3", "-c", "closure-compiler", FILE.join("Build", "Press", "cappuccinoTimer"), FILE.join("Build", "Flatten", "cappuccinoTimer")]);
+    OS.system(["flatten", "-f", "--verbose", "-c", "closure-compiler", FILE.join("Build", "Press", "cappuccinoTimer"), FILE.join("Build", "Flatten", "cappuccinoTimer")]);
 });
 
 task ("desktop", ["release"], function()
