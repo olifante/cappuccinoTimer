@@ -91,21 +91,21 @@
 
 - (@action)startTimers:(id)sender
 {
-    sound0 = [[CPSound alloc] initWithContentsOfFile:"Resources/test-8000-le-2ch-1byteu.wav" 
+    beep = [[CPSound alloc] initWithContentsOfFile:"Resources/test-8000-le-2ch-1byteu.wav" 
                                          byReference:NO];
-    sound1 = [[CPSound alloc] initWithContentsOfFile:"Resources/one.wav" 
+    sound1 = [[CPSound alloc] initWithContentsOfFile:"Resources/begin.wav" 
                                          byReference:NO];
-    sound2 = [[CPSound alloc] initWithContentsOfFile:"Resources/two.wav" 
+    sound2 = [[CPSound alloc] initWithContentsOfFile:"Resources/conclude.wav" 
                                          byReference:NO];
-    sound3 = [[CPSound alloc] initWithContentsOfFile:"Resources/three.wav" 
+    sound3 = [[CPSound alloc] initWithContentsOfFile:"Resources/walk.wav" 
                                          byReference:NO];
     var totalPeriod = [slider1 intValue] + [slider2 intValue];
     var now = [CPDate dateWithTimeIntervalSinceNow:0];
     var date1 = [[CPDate alloc] initWithTimeInterval:[slider1 intValue] 
                                            sinceDate:now];
-    var date2 = [[CPDate alloc] initWithTimeInterval:([slider1 intValue] + [slider2 intValue]) 
+    var date2 = [[CPDate alloc] initWithTimeInterval:([slider1 intValue] + [slider2 intValue] - [slider3 intValue])
                                            sinceDate:now];
-    var date3 = [[CPDate alloc] initWithTimeInterval:([slider1 intValue] + [slider2 intValue] - [slider3 intValue])
+    var date3 = [[CPDate alloc] initWithTimeInterval:([slider1 intValue] + [slider2 intValue]) 
                                            sinceDate:now];
     console.log("now: " + now);
     console.log("date1: " + date1);
@@ -113,7 +113,8 @@
     console.log("date3: " + date3);
     console.log("total period: " + totalPeriod);
     console.log("slider1 delay: " + [slider1 intValue]);
-    [sound0 play];
+    [sound3 play];
+    [beep play];
     timer1 = [[CPTimer alloc] initWithFireDate:date1
                                       interval:totalPeriod
                                       callback:function() {
@@ -142,7 +143,7 @@
     console.log("timer1 fire date: " + [timer1 fireDate]);
     console.log("timer2 fire date: " + [timer2 fireDate]);
     console.log("timer3 fire date: " + [timer3 fireDate]);
-    console.log("sound0 load status: " + sound0._loadStatus);
+    console.log("beep load status: " + beep._loadStatus);
     console.log("sound1 load status: " + sound1._loadStatus);
     console.log("sound2 load status: " + sound2._loadStatus);
     console.log("sound3 load status: " + sound3._loadStatus);
