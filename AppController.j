@@ -28,6 +28,9 @@
     sound1;
     sound2;
     sound3;
+    timer1;
+    timer2;
+    timer3;
 }
 
 - (void)applicationDidFinishLaunching:(CPNotification)aNotification
@@ -86,38 +89,73 @@
     [target setIntValue:[sender intValue]];
 }
 
-- (@action)totalPeriod:(id)sender
+- (@action)startTimers:(id)sender
 {
-    sound0 = [[CPSound alloc] initWithContentsOfFile:"Resources/test-8000-le-2ch-1byteu.wav" byReference:NO];
-    sound1 = [[CPSound alloc] initWithContentsOfFile:"Resources/one.wav" byReference:NO];
-    sound2 = [[CPSound alloc] initWithContentsOfFile:"Resources/two.wav" byReference:NO];
-    sound3 = [[CPSound alloc] initWithContentsOfFile:"Resources/three.wav" byReference:NO];
-    var total = [slider1 intValue] + [slider2 intValue] + [slider3 intValue];
-    console.log("total period: " + total);
+    sound0 = [[CPSound alloc] initWithContentsOfFile:"Resources/test-8000-le-2ch-1byteu.wav" 
+                                         byReference:NO];
+    sound1 = [[CPSound alloc] initWithContentsOfFile:"Resources/one.wav" 
+                                         byReference:NO];
+    sound2 = [[CPSound alloc] initWithContentsOfFile:"Resources/two.wav" 
+                                         byReference:NO];
+    sound3 = [[CPSound alloc] initWithContentsOfFile:"Resources/three.wav" 
+                                         byReference:NO];
+    var totalPeriod = [slider1 intValue] + [slider2 intValue];
+    var now = [CPDate dateWithTimeIntervalSinceNow:0];
+    var date1 = [[CPDate alloc] initWithTimeInterval:[slider1 intValue] 
+                                           sinceDate:now];
+    var date2 = [[CPDate alloc] initWithTimeInterval:([slider1 intValue] + [slider2 intValue]) 
+                                           sinceDate:now];
+    var date3 = [[CPDate alloc] initWithTimeInterval:([slider1 intValue] + [slider2 intValue] - [slider3 intValue])
+                                           sinceDate:now];
+    console.log("now: " + now);
+    console.log("date1: " + date1);
+    console.log("date2: " + date2);
+    console.log("date3: " + date3);
+    console.log("total period: " + totalPeriod);
     console.log("slider1 delay: " + [slider1 intValue]);
     [sound0 play];
-    console.log(sound1._loadStatus);
-    var timer1 = [CPTimer 
-                  scheduledTimerWithTimeInterval:[slider1 intValue]
-                  callback:function() {
-                      console.log('timer1 fired');
-                      [sound1 play];
-                  }
-                  repeats:NO];
-    var timer2 = [CPTimer 
-                  scheduledTimerWithTimeInterval:([slider1 intValue] + [slider2 intValue])
-                  callback:function() {
-                      console.log('timer2 fired');
-                      [sound2 play];
-                  }
-                  repeats:NO];
-    var timer3 = [CPTimer 
-                  scheduledTimerWithTimeInterval:([slider1 intValue] + [slider2 intValue] + [slider3 intValue])
-                  callback:function() {
-                      console.log('timer3 fired');
-                      [sound3 play];
-                  }
-                  repeats:NO];
+    timer1 = [[CPTimer alloc] initWithFireDate:date1
+                                      interval:totalPeriod
+                                      callback:function() {
+                                          console.log('timer1 fired');
+                                          [sound1 play];
+                                      }
+                                       repeats:YES];
+    timer2 = [[CPTimer alloc] initWithFireDate:date2
+                                      interval:totalPeriod
+                                      callback:function() {
+                                          console.log('timer2 fired');
+                                          [sound2 play];
+                                      }
+                                       repeats:YES];
+    timer3 = [[CPTimer alloc] initWithFireDate:date3
+                                      interval:totalPeriod
+                                      callback:function() {
+                                          console.log('timer3 fired');
+                                          [sound3 play];
+                                      }
+                                       repeats:YES];
+    var runLoop = [CPRunLoop currentRunLoop];
+    [runLoop addTimer:timer1 forMode:CPDefaultRunLoopMode];
+    [runLoop addTimer:timer2 forMode:CPDefaultRunLoopMode];
+    [runLoop addTimer:timer3 forMode:CPDefaultRunLoopMode];
+    console.log("timer1 fire date: " + [timer1 fireDate]);
+    console.log("timer2 fire date: " + [timer2 fireDate]);
+    console.log("timer3 fire date: " + [timer3 fireDate]);
+    console.log("sound0 load status: " + sound0._loadStatus);
+    console.log("sound1 load status: " + sound1._loadStatus);
+    console.log("sound2 load status: " + sound2._loadStatus);
+    console.log("sound3 load status: " + sound3._loadStatus);
+}
+
+- (@action)stopTimers:(id)sender
+{
+    [timer1 invalidate];
+    [timer2 invalidate];
+    [timer3 invalidate];
+    console.log("stopped timer1");
+    console.log("stopped timer2");
+    console.log("stopped timer3");
 }
 
 @end
