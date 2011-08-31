@@ -46,6 +46,9 @@
 
     // In this case, we want the window from Cib to become our full browser window
     [theWindow setFullPlatformWindow:YES];
+    [field1 setIntValue:[slider1 intValue]];
+    [field2 setIntValue:[slider2 intValue]];
+    [field3 setIntValue:[slider3 intValue]];
 }
 
 - (@action)buttonClicked:(id)sender
@@ -100,7 +103,7 @@
     var now = [CPDate dateWithTimeIntervalSinceNow:0];
     var date1 = [[CPDate alloc] initWithTimeInterval:[slider1 intValue] 
                                            sinceDate:now];
-    var date2 = [[CPDate alloc] initWithTimeInterval:([slider1 intValue] + [slider2 intValue] + [slider3 intValue])
+    var date2 = [[CPDate alloc] initWithTimeInterval:([slider1 intValue] + [slider2 intValue] - [slider3 intValue])
                                            sinceDate:now];
     var date3 = [[CPDate alloc] initWithTimeInterval:([slider1 intValue] + [slider2 intValue]) 
                                            sinceDate:now];
