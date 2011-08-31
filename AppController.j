@@ -58,11 +58,10 @@
     } else if (sender === button3) {
         target = level3;
     } else {
-        console.log('no target');
+//        console.log('no target');
         return;
     }
     var currentValue = [target intValue];
-    console.log(currentValue);
     if (currentValue === [target maxValue]) {
         [target setIntValue:[target minValue]];
     } else {
@@ -73,7 +72,6 @@
 - (@action)fieldChanged:(id)sender
 {
     var target;
-    console.log("sender has value " + [sender intValue]);
     switch (sender) {
         case field1:
             target = slider1;
@@ -85,7 +83,6 @@
             target = slider3;
             break;
     }
-    console.log("target has value " + [target intValue]);
     [target setIntValue:[sender intValue]];
 }
 
@@ -107,32 +104,26 @@
                                            sinceDate:now];
     var date3 = [[CPDate alloc] initWithTimeInterval:([slider1 intValue] + [slider2 intValue]) 
                                            sinceDate:now];
-    console.log("now: " + now);
-    console.log("date1: " + date1);
-    console.log("date2: " + date2);
-    console.log("date3: " + date3);
-    console.log("total period: " + totalPeriod);
-    console.log("slider1 delay: " + [slider1 intValue]);
-    [sound3 play];
     [beep play];
+    [sound3 play];
     timer1 = [[CPTimer alloc] initWithFireDate:date1
                                       interval:totalPeriod
                                       callback:function() {
-                                          console.log('timer1 fired');
+//                                          console.log('timer1 fired');
                                           [sound1 play];
                                       }
                                        repeats:YES];
     timer2 = [[CPTimer alloc] initWithFireDate:date2
                                       interval:totalPeriod
                                       callback:function() {
-                                          console.log('timer2 fired');
+//                                          console.log('timer2 fired');
                                           [sound2 play];
                                       }
                                        repeats:YES];
     timer3 = [[CPTimer alloc] initWithFireDate:date3
                                       interval:totalPeriod
                                       callback:function() {
-                                          console.log('timer3 fired');
+//                                          console.log('timer3 fired');
                                           [sound3 play];
                                       }
                                        repeats:YES];
@@ -140,13 +131,6 @@
     [runLoop addTimer:timer1 forMode:CPDefaultRunLoopMode];
     [runLoop addTimer:timer2 forMode:CPDefaultRunLoopMode];
     [runLoop addTimer:timer3 forMode:CPDefaultRunLoopMode];
-    console.log("timer1 fire date: " + [timer1 fireDate]);
-    console.log("timer2 fire date: " + [timer2 fireDate]);
-    console.log("timer3 fire date: " + [timer3 fireDate]);
-    console.log("beep load status: " + beep._loadStatus);
-    console.log("sound1 load status: " + sound1._loadStatus);
-    console.log("sound2 load status: " + sound2._loadStatus);
-    console.log("sound3 load status: " + sound3._loadStatus);
 }
 
 - (@action)stopTimers:(id)sender
@@ -154,9 +138,9 @@
     [timer1 invalidate];
     [timer2 invalidate];
     [timer3 invalidate];
-    console.log("stopped timer1");
-    console.log("stopped timer2");
-    console.log("stopped timer3");
+    beep = [[CPSound alloc] initWithContentsOfFile:"Resources/test-8000-le-2ch-1byteu.wav" 
+                                       byReference:NO];
+    [beep play];
 }
 
 @end
