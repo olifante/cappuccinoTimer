@@ -75,7 +75,7 @@
 								<reference key="NSControlView" ref="974764906"/>
 								<double key="NSMaxValue">360</double>
 								<double key="NSMinValue">1</double>
-								<double key="NSValue">1</double>
+								<double key="NSValue">2</double>
 								<double key="NSAltIncValue">0.0</double>
 								<int key="NSNumberOfTickMarks">0</int>
 								<int key="NSTickMarkPosition">1</int>
@@ -100,6 +100,7 @@
 									<double key="NSSize">13</double>
 									<int key="NSfFlags">1044</int>
 								</object>
+								<string key="NSPlaceholderString">2</string>
 								<reference key="NSControlView" ref="160623561"/>
 								<bool key="NSDrawsBackground">YES</bool>
 								<object class="NSColor" key="NSBackgroundColor" id="486909120">
@@ -138,7 +139,7 @@
 								<reference key="NSControlView" ref="177326744"/>
 								<double key="NSMaxValue">360</double>
 								<double key="NSMinValue">1</double>
-								<double key="NSValue">1</double>
+								<double key="NSValue">10</double>
 								<double key="NSAltIncValue">0.0</double>
 								<int key="NSNumberOfTickMarks">0</int>
 								<int key="NSTickMarkPosition">1</int>
@@ -159,6 +160,7 @@
 								<int key="NSCellFlags2">71304192</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="4674274"/>
+								<string key="NSPlaceholderString">10</string>
 								<reference key="NSControlView" ref="227892302"/>
 								<bool key="NSDrawsBackground">YES</bool>
 								<reference key="NSBackgroundColor" ref="486909120"/>
@@ -179,9 +181,9 @@
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="335239499"/>
 								<reference key="NSControlView" ref="641580494"/>
-								<double key="NSMaxValue">360</double>
-								<double key="NSMinValue">1</double>
-								<double key="NSValue">1</double>
+								<double key="NSMaxValue">-1</double>
+								<double key="NSMinValue">-360</double>
+								<double key="NSValue">-2</double>
 								<double key="NSAltIncValue">0.0</double>
 								<int key="NSNumberOfTickMarks">0</int>
 								<int key="NSTickMarkPosition">1</int>
@@ -202,6 +204,7 @@
 								<int key="NSCellFlags2">71304192</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="4674274"/>
+								<string key="NSPlaceholderString">-2</string>
 								<reference key="NSControlView" ref="145134721"/>
 								<bool key="NSDrawsBackground">YES</bool>
 								<reference key="NSBackgroundColor" ref="486909120"/>
@@ -211,7 +214,7 @@
 						<object class="NSTextField" id="689424642">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">301</int>
-							<string key="NSFrame">{{136, 280}, {92, 17}}</string>
+							<string key="NSFrame">{{136, 280}, {78, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="974764906"/>
@@ -220,7 +223,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="51945774">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">Transit Period</string>
+								<string key="NSContents">Walk Period</string>
 								<reference key="NSSupport" ref="4674274"/>
 								<string key="NSCellIdentifier">_NS:3983</string>
 								<reference key="NSControlView" ref="689424642"/>
@@ -244,7 +247,7 @@
 						<object class="NSTextField" id="32069612">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">301</int>
-							<string key="NSFrame">{{136, 182}, {78, 17}}</string>
+							<string key="NSFrame">{{136, 182}, {92, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="177326744"/>
@@ -253,7 +256,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="574235316">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">Main Period</string>
+								<string key="NSContents">Station Period</string>
 								<reference key="NSSupport" ref="4674274"/>
 								<string key="NSCellIdentifier">_NS:3983</string>
 								<reference key="NSControlView" ref="32069612"/>
@@ -264,7 +267,7 @@
 						<object class="NSTextField" id="62875898">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">301</int>
-							<string key="NSFrame">{{136, 91}, {104, 17}}</string>
+							<string key="NSFrame">{{136, 91}, {100, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="641580494"/>
@@ -273,7 +276,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="690310605">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">Wrap-up Period</string>
+								<string key="NSContents">Warning Period</string>
 								<reference key="NSSupport" ref="4674274"/>
 								<string key="NSCellIdentifier">_NS:3983</string>
 								<reference key="NSControlView" ref="62875898"/>
@@ -287,7 +290,7 @@
 							<string key="NSFrame">{{152, 312}, {70, 32}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="171742444"/>
+							<reference key="NSNextKeyView" ref="760617000"/>
 							<string key="NSReuseIdentifierKey">_NS:633</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="551634445">
@@ -305,7 +308,7 @@
 								<int key="NSPeriodicInterval">25</int>
 							</object>
 						</object>
-						<object class="NSButton" id="171742444">
+						<object class="NSButton" id="760617000">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">301</int>
 							<string key="NSFrame">{{259, 312}, {68, 32}}</string>
@@ -314,13 +317,13 @@
 							<reference key="NSNextKeyView" ref="689424642"/>
 							<string key="NSReuseIdentifierKey">_NS:633</string>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="193982236">
+							<object class="NSButtonCell" key="NSCell" id="871994183">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents">Stop</string>
 								<reference key="NSSupport" ref="4674274"/>
 								<string key="NSCellIdentifier">_NS:633</string>
-								<reference key="NSControlView" ref="171742444"/>
+								<reference key="NSControlView" ref="760617000"/>
 								<int key="NSButtonFlags">-2038284033</int>
 								<int key="NSButtonFlags2">129</int>
 								<string key="NSAlternateContents"/>
@@ -446,7 +449,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">stopTimers:</string>
 						<reference key="source" ref="635946545"/>
-						<reference key="destination" ref="171742444"/>
+						<reference key="destination" ref="760617000"/>
 					</object>
 					<int key="connectionID">535</int>
 				</object>
@@ -528,7 +531,7 @@
 							<reference ref="227892302"/>
 							<reference ref="145134721"/>
 							<reference ref="960082418"/>
-							<reference ref="171742444"/>
+							<reference ref="760617000"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -679,17 +682,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">532</int>
-						<reference key="object" ref="171742444"/>
+						<reference key="object" ref="760617000"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="193982236"/>
+							<reference ref="871994183"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">533</int>
-						<reference key="object" ref="193982236"/>
-						<reference key="parent" ref="171742444"/>
+						<reference key="object" ref="871994183"/>
+						<reference key="parent" ref="760617000"/>
 					</object>
 				</object>
 			</object>
